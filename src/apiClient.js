@@ -45,10 +45,9 @@ export const BOOKS = [
   },
 ];
 
-export const fetchBooks = () => {
-  return new Promise(resolve => {
+export const fetchBooks = () =>
+  new Promise(resolve => {
     setTimeout(() => {
       resolve(BOOKS);
     }, 1000);
   });
-};

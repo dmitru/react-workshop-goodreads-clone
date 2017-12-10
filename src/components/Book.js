@@ -25,7 +25,7 @@ Book.propTypes = {
   onFavoriteClick: PropTypes.func,
 };
 
-Book.defaultTypes = {
+Book.defaultProps = {
   reviews: 0,
   isFavorite: false,
   onFavoriteClick: null,

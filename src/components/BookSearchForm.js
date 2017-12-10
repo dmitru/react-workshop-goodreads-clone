@@ -62,10 +62,11 @@ export default class BookSearchForm extends Component {
           placeholder="Search books..."
         />
 
-        <label>
+        <label htmlFor="book-filters-only-favorites">
           Only favorites?
           <input
             type="checkbox"
+            id="book-filters-only-favorites"
             value={this.state.favoriteOnly}
             onChange={this.handleFavoriteOnlyCheckboxChange}
           />

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 
 import BookList from './BookList';
@@ -15,6 +16,14 @@ function AppLayout({ children }) {
   );
 }
 
+AppLayout.propTypes = {
+  children: PropTypes.node,
+};
+
+AppLayout.defaultProps = {
+  children: null,
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +38,7 @@ class App extends Component {
   componentDidMount() {
     fetchBooks().then(books => {
       this.setState({
-        books: books,
+        books,
         isLoading: false,
       });
     });

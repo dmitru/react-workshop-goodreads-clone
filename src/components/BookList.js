@@ -18,14 +18,6 @@ export default class BookList extends Component {
     this.handleBookFavoriteClick = this.handleBookFavoriteClick.bind(this);
   }
 
-  handleFiltersChange(filters) {
-    this.setState({ filters });
-  }
-
-  handleBookFavoriteClick(bookId) {
-    this.props.onBookFavoriteClick(bookId);
-  }
-
   getFilteredBooks() {
     const { books } = this.props;
     const { filters: { search, isFavoriteOnly } } = this.state;
@@ -43,6 +35,14 @@ export default class BookList extends Component {
     return booksFilteredByTitleAndFavorite;
   }
 
+  handleFiltersChange(filters) {
+    this.setState({ filters });
+  }
+
+  handleBookFavoriteClick(bookId) {
+    this.props.onBookFavoriteClick(bookId);
+  }
+
   render() {
     const { showSearch } = this.props;
 
@@ -55,17 +55,15 @@ export default class BookList extends Component {
         )}
 
         {filteredBooks.length > 0 &&
-          filteredBooks.map(
-            ({ id, title, summary, isFavorite, reviewsCount }) => (
-              <Book
-                key={id}
-                title={title}
-                isFavorite={isFavorite}
-                reviews={reviewsCount}
-                onFavoriteClick={() => this.handleBookFavoriteClick(id)}
-              />
-            )
-          )}
+          filteredBooks.map(({ id, title, isFavorite, reviewsCount }) => (
+            <Book
+              key={id}
+              title={title}
+              isFavorite={isFavorite}
+              reviews={reviewsCount}
+              onFavoriteClick={() => this.handleBookFavoriteClick(id)}
+            />
+          ))}
 
         {filteredBooks.length === 0 && <p>No books matching the filters.</p>}
       </div>
@@ -80,5 +78,6 @@ BookList.propTypes = {
 };
 
 BookList.defaultProps = {
+  books: [],
   showSearch: true,
 };
