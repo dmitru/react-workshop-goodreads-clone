@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Book from './Book';
 import BookSearchForm from './BookSearchForm';
-// import './BookList.css';
+import './BookList.css';
 
 import { BookShape } from '../shapes';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import './Book.css';
+import './Book.css';
 
 export default function Book({ title, reviews, isFavorite, onFavoriteClick }) {
   const favoriteIcon = isFavorite ? '★' : '✩';
