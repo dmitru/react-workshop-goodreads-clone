@@ -62,3 +62,7 @@ ReactDOM.render(
   React.createElement(App, null, 'React without magic'),
   document.getElementById('app')
 );
+
+if (module.hot) {
+  module.hot.accept();
+}

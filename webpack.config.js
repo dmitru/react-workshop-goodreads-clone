@@ -1,8 +1,13 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   context: __dirname,
-  entry: ['./src/index.js', 'webpack-dev-server/client?http://localhost:8080'],
+  entry: [
+    './src/index.js',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+  ],
   devtool: 'cheap-eval-source-map',
   output: {
     path: path.join(__dirname, 'public/dist'),
@@ -13,6 +18,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json'],
   },
   devServer: {
+    hot: true,
     contentBase: path.join(__dirname, 'public'),
   },
   stats: {
@@ -20,4 +26,8 @@ module.exports = {
     reasons: true,
     chunks: true,
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+  ],
 };
