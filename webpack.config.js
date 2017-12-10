@@ -38,6 +38,12 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
+        enforce: 'pre',
+        test: /\.jsx?$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+      },
+      {
         test: /\.jsx?$/,
         loader: 'babel-loader',
       },
