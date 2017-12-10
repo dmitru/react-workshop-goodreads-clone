@@ -4,6 +4,7 @@ const webpack = require('webpack');
 module.exports = {
   context: __dirname,
   entry: [
+    'react-hot-loader/patch',
     './src/index.js',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
